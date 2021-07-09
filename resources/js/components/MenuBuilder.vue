@@ -24,8 +24,7 @@
         </button>
 
         <div :class="`text-90 ${!item.enabled ? 'opacity-25' : ''}`">{{ item.name }}</div>
-        <div :class="`font-lighter text-80 ml-4 text-sm ${!item.enabled ? 'opacity-25' : ''}`">
-          {!! item.displayValue !!}
+        <div :class="`font-lighter text-80 ml-4 text-sm ${!item.enabled ? 'opacity-25' : ''}`" v-html="item.displayValue">
         </div>
       </div>
 
