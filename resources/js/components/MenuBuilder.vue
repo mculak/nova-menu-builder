@@ -24,7 +24,8 @@
         </button>
 
         <div :class="`text-90 ${!item.enabled ? 'opacity-25' : ''}`">{{ item.name }}</div>
-        <div :class="`font-lighter text-80 ml-4 text-sm ${!item.enabled ? 'opacity-25' : ''}`" v-html="item.displayValue">
+        <div :class="`font-lighter text-80 ml-4 text-sm ${!item.enabled ? 'opacity-25' : ''}`">
+          <span v-html="showDisplayValue(item)"></span>
         </div>
       </div>
 
@@ -107,6 +108,11 @@ export default {
   methods: {
     hasChildren(item) {
       return Array.isArray(item.children) && item.children.length;
+    },
+
+    showDisplayValue(item) {
+      console.log(item.displayValue);
+      return item.displayValue;
     },
 
     toggleMenuChildrenCascade(item) {
